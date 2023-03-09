@@ -34,6 +34,7 @@ FormsAnswers.init({
     allowNull: false,
   },
 }, {
+  underscored: true,
   sequelize: db,
   modelName: 'forms_answers',
   timestamps: true,
