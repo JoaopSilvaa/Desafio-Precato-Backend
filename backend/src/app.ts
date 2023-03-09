@@ -1,5 +1,7 @@
 import * as express from 'express';
 import 'express-async-errors';
+import forms_answersRoute from './routers/FormsAnswersRoute';
+import errorMiddleware from './middlewares/errorMiddleware';
 
 class App {
   public app: express.Express;
@@ -10,6 +12,8 @@ class App {
     this.config();
 
     this.app.get('/', (_req, res) => res.json({ ok: true }));
+    this.app.use('/form', forms_answersRoute);
+    this.app.use(errorMiddleware);
   }
 
   private config():void {

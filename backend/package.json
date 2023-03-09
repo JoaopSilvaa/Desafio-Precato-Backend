@@ -3,7 +3,7 @@
   "description": "API utilizando Sequelize, PostgreSQL e Docker",
   "scripts": {
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
-    "start": "npx sequelize-cli db:drop && npx sequelize-cli db:create && tsnd ./src/server.ts",
+    "start": "npm run db:reset && tsnd ./src/server.ts",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts"
   },
   "keywords": [],

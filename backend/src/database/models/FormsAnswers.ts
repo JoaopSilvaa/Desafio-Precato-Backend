@@ -1,17 +1,16 @@
-import { Model, INTEGER, STRING, DATE } from 'sequelize';
+import { Model, INTEGER, STRING } from 'sequelize';
 import db from '.';
 
 
-class forms_answers extends Model {
+class FormsAnswers extends Model {
   public id!: number;
   public name!: string;
   public email!: string;
   public cpf!: string;
   public phone!: string;
-  public createdAt!: Date;
 }
 
-forms_answers.init({
+FormsAnswers.init({
   id: {
     type: INTEGER,
     allowNull: false,
@@ -34,16 +33,11 @@ forms_answers.init({
     type: STRING,
     allowNull: false,
   },
-  createdAt: {
-    type: DATE,
-    allowNull: false,
-  },
 }, {
-  underscored: true,
   sequelize: db,
   modelName: 'forms_answers',
   timestamps: true,
   updatedAt: false,
 });
 
-export default forms_answers;
+export default FormsAnswers;
