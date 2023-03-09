@@ -43,6 +43,7 @@ forms_answers.init({
   sequelize: db,
   modelName: 'forms_answers',
   timestamps: true,
+  updatedAt: false,
 });
 
 export default forms_answers;
