@@ -53,7 +53,7 @@ Para executar o projeto corretamente, atente-se a cada passo descrito a seguir.
 </details>
 
 <details>
-<summary><strong> Estrutura do projeto</strong></summary><br />
+<summary><strong> :bricks: Estrutura do projeto</strong></summary><br />
 
 O projeto é composto de 3 entidades importantes para sua estrutura:
 
@@ -94,7 +94,7 @@ O projeto é composto de 3 entidades importantes para sua estrutura:
 </details>
 
 <details>
-  <summary id="infos"><strong> 👨‍💻 Informações Importantes </strong></summary><br />
+  <summary><strong> 👨‍💻 Informações Importantes </strong></summary><br />
 
   - Para conseguir criar um form_answer você precisa:
     * Colocar um <b>name</b> com pelo menos 3 caracteres;
@@ -106,10 +106,11 @@ O projeto é composto de 3 entidades importantes para sua estrutura:
     * Você precisa colocar um <b>dateInitial</b> no formato: YYYY-MM-DD e/ou um <b>dateFinal</b> no formato YYYY-MM-DD;
 </details>
 
-<strong> Endpoints acessíveis</strong><br />
+<details>
+  <summary id="infos"><strong> :twisted_rightwards_arrows: Endpoints Acessíveis </strong></summary><br />
 
 ## POST Form `form/`
-* Endpoint responsável por criar um form, caso todos os dados sejam preenchidos corretamente (como descreve a seção <a href="#infos">Informações importantes</a>) e registrar no banco de dados.
+* Endpoint responsável por criar um form, caso todos os dados sejam preenchidos corretamente (como descreve a seção Informações importantes) e registrar no banco de dados.
   - O corpo da requisição deve seguir o formato abaixo:
     ```json
     {
@@ -159,8 +160,8 @@ O projeto é composto de 3 entidades importantes para sua estrutura:
         "createdAt": "2023-03-09"
     }
     ```
+</details>
 
-  
-<br /><br />
+<br />
 Projeto Desenvolvido por [João Antônio](https://github.com/JoaopSilvaa)
 
