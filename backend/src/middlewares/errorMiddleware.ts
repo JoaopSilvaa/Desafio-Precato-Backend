@@ -7,13 +7,14 @@ const errorMiddleware: ErrorRequestHandler = (
   res,
   _next,
 ) => {
-  const messageAsErrorType = err.message as keyof typeof Errors;
+  const nameAsErrorType = err.name as keyof typeof Errors;
 
-  const mappedError = errorCatalog[messageAsErrorType];
+  const mappedError = errorCatalog[nameAsErrorType];
   if (mappedError) {
-    const { error, httpStatus } = mappedError;
-    
-    return res.status(httpStatus).json({ error });
+    const { httpStatus } = mappedError;
+    const { message } = err;
+
+    return res.status(httpStatus).json({ message });
   }
 
   return res.status(500).json({ message: 'Ops! Internal Error' });
