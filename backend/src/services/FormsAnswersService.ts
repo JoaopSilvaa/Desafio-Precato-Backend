@@ -1,3 +1,5 @@
+import sequelize = require('sequelize');
+import { Op } from 'sequelize';
 import FormsAnswers from '../database/models/FormsAnswers';
 import IFormAnswers from '../Interfaces/FormsAnswers';
 
@@ -36,6 +38,42 @@ class FormsAnswersService {
       err.name = "NotFoundError";
       throw err;
     }
+    return result;
+  }
+
+  public async readForDate(dateInitial: string, dateFinal: string): Promise<IFormAnswers[]> {
+    if (!dateInitial && !dateFinal) {
+      const err = new Error("Invalid dates, dateInitial or dateFinal are required");
+      err.name = "BadRequestError";
+      throw err;
+    }
+    if (!dateFinal) {
+      const result = await FormsAnswers.findAll({
+        where: {
+          created_at: {
+            [Op.gte]: dateInitial 
+          },
+        },
+      });
+      return result;
+    }
+    if (!dateInitial) {
+      const result = await FormsAnswers.findAll({
+        where: {
+          created_at: {
+            [Op.lte]: dateFinal 
+          },
+        },
+      });
+      return result;
+    }
+    const result = await FormsAnswers.findAll({  
+      where: {
+        created_at: {
+          [Op.between]: [dateInitial, dateFinal] 
+        },
+      },
+    });
     return result;
   }
 }

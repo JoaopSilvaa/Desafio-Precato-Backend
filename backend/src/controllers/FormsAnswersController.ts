@@ -23,6 +23,12 @@ class Forms_answersController {
     const result = await this._service.readOne(id);
     return res.status(200).json(result);
   }
+
+  public async readForDate(req: Request, res: Response) {
+    const { dateInitial, dateFinal } = req.body;
+    const result = await this._service.readForDate(dateInitial, dateFinal);
+    return res.status(200).json(result);
+  }
 }
 
 export default Forms_answersController;
