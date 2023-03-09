@@ -20,6 +20,11 @@ class FormsAnswersService {
     const result = await FormsAnswers.create(obj);
     return result;
   }
+
+  public async readAll(): Promise<IFormAnswers[]> {
+    const result = await FormsAnswers.findAll();
+    return result;
+  }
 }
 
 export default FormsAnswersService;

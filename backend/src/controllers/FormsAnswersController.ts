@@ -12,6 +12,11 @@ class Forms_answersController {
     const result = await this._service.create(req.body);
     return res.status(201).json(result);
   }
+
+  public async readAll(_req: Request, res: Response) {
+    const result = await this._service.readAll();
+    return res.status(200).json(result);
+  }
 }
 
 export default Forms_answersController;

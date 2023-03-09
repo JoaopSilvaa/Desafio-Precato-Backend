@@ -8,5 +8,6 @@ const formsAnswersService = new FormsAnswersService();
 const formsAnswersController = new FormsAnswersController(formsAnswersService);
 
 router.post('/', (req, res) => formsAnswersController.create(req, res));
+router.get('/', (req, res) => formsAnswersController.readAll(req, res));
 
 export default router;
